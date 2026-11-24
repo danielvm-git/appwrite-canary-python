@@ -1,0 +1,15 @@
+story_id: e09s01
+title: "e09s01 frontend"
+status: todo
+bcps: 5
+tasks:
+  - id: 1
+    description: "preflight and build"
+    verify: "bash scripts/verify-story-e09s01.sh"
+    risk: P0
+    status: todo
+  - id: 2
+    description: "smoke production"
+    verify: "bash scripts/run-smoke.sh"
+    risk: P0
+    status: todo

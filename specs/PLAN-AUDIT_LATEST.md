@@ -3,20 +3,10 @@
 
 ## Principles Alignment
 | Check | Status | Note |
-| Vertical slices | ✅ | Each story shippable with verify |
-| Scope bounded | ✅ | SCOPE_LATEST.yaml |
-| Success criteria | ✅ | Version on production URL |
-| Walking skeleton first | ✅ | e01 before e02 release |
-
-## Pre-flight Answers
-| Command | Value |
-| test | see CONVENTIONS.md (planned e01s01) |
-| build | stack-specific |
-| CI | GitHub Actions wire-ci TBR |
-| Mode | solo-git |
-
-## Open Gaps
-- None blocking plan readiness (implementation pending)
+| Vertical slices | ✅ | e09 three stories |
+| Scope bounded | ✅ | TODO_APP_REQUIREMENTS |
+| Success criteria | ✅ | UI + function + verify |
+| Walking skeleton first | ✅ | e01–e08 done |
 
 ## Verdict
-READY — proceed with kickoff-branch on node pilot first
+READY — implement after shell e03

@@ -31,3 +31,7 @@ epics:
     title: "Stable 1.0.0"
     wsjf: 3.5
     capsule_dir: epics/e08-stable-release
+  - id: e09
+    title: "Todo parity"
+    wsjf: 8.5
+    capsule_dir: epics/e09-todo-parity
