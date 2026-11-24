@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- big-release managed -->
 
+## [1.1.0] - 2026-11-24
+
+### Added
+
+- **feat:** todo parity from shell v2.0.0 ([#4](https://github.com/danielvm-git/appwrite-canary-python/issues/4)) ([007c1b4](https://github.com/danielvm-git/appwrite-canary-python/commit/007c1b447d1b5a17298a4b3f043f7554d9380ec4))
+
 ## [1.0.0] - 2026-11-24
 
 ### Changed
