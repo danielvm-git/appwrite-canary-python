@@ -1,11 +1,10 @@
 .DS_Store
-.venv/
-__pycache__/
-*.pyc
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
+node_modules/
 dist/
 .env
 .env.*
 !.env.example
+coverage/
+functions/share-task/.pytest_cache/
+functions/share-task/__pycache__/
+*.pyc
