@@ -1,0 +1,18 @@
+id: e01
+title: "Walking skeleton"
+wsjf: 8.5
+total_bcps: 11
+status: planning
+stories:
+  - id: e01s01
+    title: "Repo prep Hello World (python)"
+    bcps: 5
+    status: todo
+    spec: e01s01.md
+    tasks: e01s01-tasks.yaml
+  - id: e01s02
+    title: "feat: first release on python.danielvm.net"
+    bcps: 6
+    status: todo
+    spec: e01s02.md
+    tasks: e01s02-tasks.yaml

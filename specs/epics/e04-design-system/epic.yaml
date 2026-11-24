@@ -1,0 +1,12 @@
+id: e04
+title: "Design system"
+wsjf: 5.0
+total_bcps: 5
+status: planning
+stories:
+  - id: e04s01
+    title: "feat: shell sync pin"
+    bcps: 5
+    status: todo
+    spec: e04s01.md
+    tasks: e04s01-tasks.yaml

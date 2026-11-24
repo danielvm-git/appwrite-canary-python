@@ -1,0 +1,12 @@
+id: e08
+title: "Stable 1.0.0"
+wsjf: 3.5
+total_bcps: 4
+status: planning
+stories:
+  - id: e08s01
+    title: "feat!: stable 1.0.0"
+    bcps: 4
+    status: todo
+    spec: e08s01.md
+    tasks: e08s01-tasks.yaml

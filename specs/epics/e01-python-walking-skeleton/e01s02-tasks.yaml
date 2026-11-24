@@ -1,0 +1,40 @@
+story_id: e01s02
+title: "feat: first release deploy"
+status: failing
+bcps: 6
+tasks:
+  - id: 1
+    description: "Project preflight: gh secrets and Site API 200"
+    verify: "gh secret list -R danielvm-git/appwrite-canary-python | rg -q APPWRITE_API_KEY"
+    risk: P0
+    status: failing
+    allure: { severity: critical, categories: ["secrets"] }
+  - id: 2
+    description: "big-release initialVersion and release job"
+    verify: "test -f .big-release.yml && rg -q initialVersion .big-release.yml && rg -q 'big-release release' .github/workflows/test-build-release.yml"
+    risk: P0
+    status: failing
+  - id: 3
+    description: "deploy.yml job order preflight build deploy smoke"
+    verify: "test -f .github/workflows/deploy.yml && rg -q preflight .github/workflows/deploy.yml && rg -q smoke .github/workflows/deploy.yml"
+    risk: P0
+    status: failing
+    allure: { severity: critical, categories: ["deploy"] }
+  - id: 4
+    description: "wire-observability: health.json and JSON deploy logs doc"
+    verify: "test -f smoke-checks.yaml && rg -q health.json smoke-checks.yaml && rg -q Observability CLAUDE.md"
+    risk: P2
+    status: failing
+    allure: { severity: normal, categories: ["observability"] }
+  - id: 5
+    description: "deploy-appwrite.sh syntax valid"
+    verify: "test -x scripts/deploy-appwrite.sh && bash -n scripts/deploy-appwrite.sh"
+    risk: P0
+    status: failing
+    allure: { severity: critical, categories: ["deploy"] }
+  - id: 6
+    description: "Production smoke Hello World and VERSION from tag"
+    verify: "ver=$(cat VERSION); curl -sfS https://python.danielvm.net/ | rg -q 'Hello World' && curl -sfS https://python.danielvm.net/ | rg -q "v$ver""
+    risk: P0
+    status: failing
+    allure: { severity: critical, categories: ["smoke"] }

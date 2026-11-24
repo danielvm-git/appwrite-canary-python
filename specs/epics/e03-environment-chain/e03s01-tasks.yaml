@@ -1,0 +1,20 @@
+story_id: e03s01
+title: "beta prerelease staging"
+status: failing
+bcps: 5
+tasks:
+  - id: 1
+    description: "staging smoke-checks file references staging host"
+    verify: "test -f smoke-checks.staging.yaml && rg -q python-staging.danielvm.net smoke-checks.staging.yaml"
+    risk: P1
+    status: failing
+  - id: 2
+    description: "staging deploy script dry-run"
+    verify: "bash scripts/verify-story-e03s01.sh"
+    risk: P1
+    status: failing
+  - id: 3
+    description: "latest tag on beta branch contains beta prerelease"
+    verify: "git describe --tags --abbrev=0 | rg -q beta"
+    risk: P1
+    status: failing

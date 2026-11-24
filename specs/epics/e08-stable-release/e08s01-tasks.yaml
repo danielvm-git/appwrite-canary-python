@@ -1,0 +1,20 @@
+story_id: e08s01
+title: "stable release"
+status: failing
+bcps: 4
+tasks:
+  - id: 1
+    description: "latest tag is semver major 1"
+    verify: "git describe --tags --abbrev=0 | rg -q '^v1\.'"
+    risk: P0
+    status: failing
+  - id: 2
+    description: "VERSION matches latest tag"
+    verify: "v=$(git describe --tags --abbrev=0); test "$(cat VERSION)" = "${v#v}""
+    risk: P0
+    status: failing
+  - id: 3
+    description: "production smoke shows VERSION on python.danielvm.net"
+    verify: "ver=$(cat VERSION); curl -sfS https://python.danielvm.net/ | rg -q "v$ver""
+    risk: P0
+    status: failing

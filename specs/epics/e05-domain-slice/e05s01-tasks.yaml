@@ -1,0 +1,15 @@
+story_id: e05s01
+title: "e05s01 feature slice"
+status: failing
+bcps: 4
+tasks:
+  - id: 1
+    description: "tests for slice pass"
+    verify: "bash scripts/verify-story-e05s01.sh"
+    risk: P1
+    status: failing
+  - id: 2
+    description: "smoke production shows new minor after feat merge"
+    verify: "bash scripts/run-smoke.sh"
+    risk: P0
+    status: failing

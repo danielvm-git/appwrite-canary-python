@@ -1,0 +1,35 @@
+story_id: e01s01
+title: "Repo prep + Hello World build"
+status: failing
+bcps: 5
+tasks:
+  - id: 1
+    description: "Host preflight script exits 0 (human HOST_SETUP.md applied)"
+    verify: "bash ../../../specs/platform/run-host-preflight.sh"
+    risk: P0
+    status: failing
+    allure: { severity: critical, categories: ["platform"] }
+  - id: 2
+    description: "seed-conventions: CLAUDE.md and CONVENTIONS.md list test/build/lint/typecheck"
+    verify: "test -f CLAUDE.md && test -f CONVENTIONS.md && rg -q 'build' CONVENTIONS.md && rg -q 'test' CONVENTIONS.md"
+    risk: P1
+    status: failing
+    allure: { severity: high, categories: ["conventions"] }
+  - id: 3
+    description: "setup-environment: setup.sh idempotent (two runs exit 0)"
+    verify: "bash scripts/setup.sh && bash scripts/setup.sh"
+    risk: P1
+    status: failing
+    allure: { severity: high, categories: ["setup"] }
+  - id: 4
+    description: "hook-commits/guard-git: commit-msg rejects invalid conventional commit"
+    verify: "echo 'bad message' | .githooks/commit-msg /dev/null 2>&1 | rg -q -i 'reject|invalid'"
+    risk: P1
+    status: failing
+    allure: { severity: high, categories: ["git"] }
+  - id: 5
+    description: "Build dist with Hello World (dev version before release)"
+    verify: "uv sync && uv run pytest -q && test -f dist/index.html && rg -q Hello World dist/index.html"
+    risk: P1
+    status: failing
+    allure: { severity: high, categories: ["build"] }

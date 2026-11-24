@@ -1,0 +1,12 @@
+id: e02
+title: "Release loop proof"
+wsjf: 7.5
+total_bcps: 4
+status: planning
+stories:
+  - id: e02s01
+    title: "fix: patch release on production"
+    bcps: 4
+    status: todo
+    spec: e02s01.md
+    tasks: e02s01-tasks.yaml

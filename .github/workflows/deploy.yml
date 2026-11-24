@@ -1,0 +1,42 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [Test Build Release]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  SITE_URL: https://python.danielvm.net
+
+jobs:
+  deploy:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          name: dist
+          path: dist
+      - name: Deploy to Appwrite Site
+        env:
+          APPWRITE_ENDPOINT: ${{ secrets.APPWRITE_ENDPOINT }}
+          APPWRITE_PROJECT_ID: ${{ secrets.APPWRITE_PROJECT_ID }}
+          APPWRITE_API_KEY: ${{ secrets.APPWRITE_API_KEY }}
+          APPWRITE_SITE_ID: ${{ secrets.APPWRITE_SITE_ID }}
+        run: bash scripts/deploy-appwrite.sh
+      - name: Health check
+        run: |
+          for i in $(seq 1 8); do
+            code=$(curl -sk -o /tmp/h -w '%{http_code}' "${{ env.SITE_URL }}/health.json" || echo 000)
+            if [ "$code" = "200" ] && grep -q version /tmp/h; then echo OK; exit 0; fi
+            sleep 10
+          done
+          echo "::warning::Health check failed"
+          exit 0

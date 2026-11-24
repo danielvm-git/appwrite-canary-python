@@ -1,0 +1,12 @@
+id: e05
+title: "Domain feature"
+wsjf: 4.5
+total_bcps: 6
+status: planning
+stories:
+  - id: e05s01
+    title: "feat: table list slice"
+    bcps: 6
+    status: todo
+    spec: e05s01.md
+    tasks: e05s01-tasks.yaml
