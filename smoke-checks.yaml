@@ -1,0 +1,11 @@
+base_url: "https://python.danielvm.net"
+checks:
+  - name: Homepage Tasks shell
+    path: "/"
+    expected_status: 200
+    content_signal: "Todo API"
+    max_response_time_ms: 8000
+  - name: Health JSON
+    path: "/health.json"
+    expected_status: 200
+    content_signal: '"version"'
