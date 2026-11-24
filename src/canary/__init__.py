@@ -1,1 +1,0 @@
-"""Appwrite canary Python package."""
