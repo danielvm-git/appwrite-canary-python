@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- big-release managed -->
 
+## [1.0.0] - 2026-11-24
+
+### Changed
+
+- **feat:** stable 1.0.0 ([#2](https://github.com/danielvm-git/appwrite-canary-python/issues/2)) ([9399ecc](https://github.com/danielvm-git/appwrite-canary-python/commit/9399eccd9c5a0602f3ece72bb749a4900979c8a9))
+
 ## [0.1.1] - 2026-11-24
 
 ### Fixed
