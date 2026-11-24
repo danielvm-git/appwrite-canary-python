@@ -1,0 +1,24 @@
+id: e09
+title: "Todo parity"
+wsjf: 8.5
+total_bcps: 14
+status: planning
+stories:
+  - id: e09s01
+    title: "feat: Todo frontend from shell"
+    bcps: 5
+    status: todo
+    spec: e09s01.md
+    tasks: e09s01-tasks.yaml
+  - id: e09s02
+    title: "feat: share-task in Python"
+    bcps: 5
+    status: todo
+    spec: e09s02.md
+    tasks: e09s02-tasks.yaml
+  - id: e09s03
+    title: "test: live verify and observability"
+    bcps: 4
+    status: todo
+    spec: e09s03.md
+    tasks: e09s03-tasks.yaml
